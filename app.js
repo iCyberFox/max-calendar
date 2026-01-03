@@ -161,6 +161,9 @@ modal.addEventListener('click', () => {
 renderList();
 
 // реєстрація SW
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js');
+// app.js
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js")
+    .then(() => console.log("Service Worker зареєстровано"))
+    .catch((err) => console.error("SW помилка:", err));
 }
