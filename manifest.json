@@ -1,10 +1,11 @@
 {
-  "name": "Vape Mix Calendar",
+  "name": "Календар замісів",
   "short_name": "MixCalendar",
-  "start_url": "index.html",
+  "start_url": "/",
   "display": "standalone",
-  "background_color": "#f9f9fb",
-  "theme_color": "#00bcd4",
+  "background_color": "#ffffff",
+  "theme_color": "#3367d6",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "icon-192.png",
