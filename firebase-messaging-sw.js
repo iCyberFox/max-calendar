@@ -2,7 +2,8 @@
 importScripts('https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js');
 importScripts('https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging-compat.js');
 
-// Ініціалізація Firebase (ті самі дані, що й у index.html)
+// Конфігурація Firebase (ключі тут залишаються напряму,
+// бо service worker не проходить через Vite і не бачить import.meta.env)
 firebase.initializeApp({
   apiKey: "AIzaSyDiCzUGFq9gwwg2BChbilWpNwxYlzENuWk",
   authDomain: "mix-calendar2026.firebaseapp.com",
@@ -16,11 +17,14 @@ const messaging = firebase.messaging();
 
 // Обробка повідомлень у фоні
 messaging.onBackgroundMessage((payload) => {
+  console.log('[firebase-messaging-sw.js] Отримано фон. повідомлення', payload);
+
   const title = payload.notification?.title || 'Нагадування';
   const options = {
     body: payload.notification?.body || 'Перевірте заміс',
     icon: '/icon-192.png',
     image: payload.notification?.image,
   };
+
   self.registration.showNotification(title, options);
 });
