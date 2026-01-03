@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Календар замісів</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Календар замісів</h1>
+    <p class="muted">Додай заміс, вибери стартову і кінцеву дату, додай нотатку та фото рецепту.</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2 class="section-title">Новий заміс</h2>
+      <form id="mixForm" novalidate>
+        <label>Назва замісу</label>
+        <input type="text" id="title" placeholder="Напр.: Табачка RY4, Випічка — Коктель 2" required>
+
+        <div class="row">
+          <div class="col">
+            <label>Дата старту</label>
+            <input type="date" id="startDate" required>
+            <div class="hint">Оберіть день, коли зроблено заміс.</div>
+          </div>
+          <div class="col">
+            <label>Дата готовності</label>
+            <input type="date" id="dueDate" required>
+            <div class="hint">Оберіть день, коли рідина має настоятись.</div>
+          </div>
+        </div>
+
+        <label>Нотатки</label>
+        <textarea id="notes" rows="3" placeholder="Аромати та відсотки, зауваження по смаку..."></textarea>
+
+        <label>Фото рецепту</label>
+        <input type="file" id="photo" accept="image/*">
+        <div id="photoPreview" class="preview"></div>
+
+        <button type="submit" class="primary">Додати</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2 class="section-title">Мої заміси</h2>
+      <div id="list"></div>
+      <div id="empty" class="empty">Поки що немає замісів. Додайте перший у формі вище.</div>
+    </section>
+  </main>
+
+  <footer class="footer muted">
+    Зберігається локально у браузері. Працює офлайн як PWA.
+  </footer>
+
+  <!-- модальне вікно для фото -->
+  <div id="imgModal" class="modal" aria-hidden="true">
+    <img id="modalImg" src="" alt="Фото рецепту">
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+:root {
+  --bg: #f9f9fb;
+  --card: #ffffff;
+  --text: #222222;
+  --muted: #55595f;
+  --accent: #00bcd4;
+  --accent2: #00796b;
+  --border: #dddddd;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+h1 { font-size: 28px; }
+h2 { font-size: 22px; }
+label { font-size: 16px; }
+input, textarea, button { font-size: 16px; }
+
+.header {
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+  background: #f0f0f5;
+}
+.header h1 { margin: 0; color: var(--accent); }
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+form, input, textarea, button {
+  max-width: 100%;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  color: var(--accent2);
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  color: var(--muted);
+}
+input, textarea, button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  outline: none;
+}
+
+input[type="file"] {
+  padding: 6px;
+  background: transparent;
+  border-style: dashed;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.primary {
+  margin-top: 12px;
+  background: linear-gradient(to right, #00c2ff, #00a2d4);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.primary:hover {
+  background: linear-gradient(to right, #00a2d4, #0088b5);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.col { display: flex; flex-direction: column; }
+.hint { font-size: 14px; color: var(--muted); margin-top: 6px; }
+
+.preview img {
+  max-height: 160px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  margin-top: 8px;
+  cursor: pointer;
+  width: auto;
+  max-width: 100%;
+}
+
+.empty {
+  border: 1px dashed var(--border);
+  padding: 20px;
+  border-radius: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Список замісів */
+.mix-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: #fff;
+}
+
+.mix-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.mix-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent2);
+}
+.mix-meta {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.toggle-btn {
+  background: linear-gradient(to right, #00c2ff, #00a2d4);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  flex-shrink: 0;
+  transition: background 0.3s ease;
+}
+.toggle-btn:hover {
+  background: linear-gradient(to right, #00a2d4, #0088b5);
+}
+
+.mix-details {
+  display: none;
+  margin-top: 8px;
+}
+.mix-details img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.btn {
+  background: #e53935;
+  border: none;
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+}
+.btn:hover {
+  background: #c62828;
+}
+
+.footer {
+  padding: 16px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  background: #f0f0f5;
+}
+
+/* Модальне вікно */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+}
+.modal img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+}
+
+/* мобільна адаптація */
+@media (max-width: 600px) {
+  body { font-size: 17px; }
+  h1 { font-size: 24px; }
+  h2 { font-size: 20px; }
+  input, textarea, button { font-size: 16px; padding: 12px; }
+  .row { grid-template-columns: 1fr; }
+  .mix-card { padding: 10px; }
+  .toggle-btn, .btn { padding: 10px; font-size: 16px; }
+}
